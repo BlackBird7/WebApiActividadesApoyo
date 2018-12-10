@@ -1,0 +1,73 @@
+﻿@model WebAppActividadesApoyo.Areas.Actividades.Models.cat_actividades
+
+@{
+    ViewData["Title"] = "FicViCatActividadesCreate";
+}
+
+<h2>FicViCatActividadesCreate</h2>
+
+<h4>cat_actividades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FicViCatActividadesCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdActividad" class="control-label"></label>
+                <input asp-for="IdActividad" class="form-control" />
+                <span asp-validation-for="IdActividad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DesActividad" class="control-label"></label>
+                <input asp-for="DesActividad" class="form-control" />
+                <span asp-validation-for="DesActividad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detalle" class="control-label"></label>
+                <input asp-for="Detalle" class="form-control" />
+                <span asp-validation-for="Detalle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activo" class="control-label"></label>
+                <input asp-for="Activo" class="form-control" />
+                <span asp-validation-for="Activo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Borrado" class="control-label"></label>
+                <input asp-for="Borrado" class="form-control" />
+                <span asp-validation-for="Borrado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioReg" class="control-label"></label>
+                <input asp-for="UsuarioReg" class="form-control" />
+                <span asp-validation-for="UsuarioReg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioMod" class="control-label"></label>
+                <input asp-for="UsuarioMod" class="form-control" />
+                <span asp-validation-for="UsuarioMod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaReg" class="control-label"></label>
+                <input asp-for="FechaReg" class="form-control" />
+                <span asp-validation-for="FechaReg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaUltMod" class="control-label"></label>
+                <input asp-for="FechaUltMod" class="form-control" />
+                <span asp-validation-for="FechaUltMod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
