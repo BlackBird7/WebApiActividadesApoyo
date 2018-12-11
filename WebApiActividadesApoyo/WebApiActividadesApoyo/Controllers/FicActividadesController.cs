@@ -31,7 +31,7 @@ namespace WebApiActividadesApoyo.Controllers
         [Route("GetListActividades")]
         public ContentResult GetList()
         {
-            var consulta = from c in _context.cat_Actividades
+            var consulta = from c in _context.cat_actividades
                            select new
                            {
                                c.IdActividad,
@@ -53,12 +53,12 @@ namespace WebApiActividadesApoyo.Controllers
 
         #region GET TODO WORKiNG
         [HttpGet]
-        [Route("GetListNivelesActividades2")]
-        public async Task<ActionResult> GetListNivelesActividades2()
+        [Route("GetListActividades2")]
+        public async Task<ActionResult> GetListActividades2()
         {
             try
             {
-                var response = _context.cat_Actividades.ToList();
+                var response = _context.cat_actividades.ToList();
                 return Ok(response);
             }
             catch (Microsoft.EntityFrameworkCore.DbUpdateException e)
@@ -73,11 +73,11 @@ namespace WebApiActividadesApoyo.Controllers
 
         [HttpGet("{IdActividad}")]
         [Route("GetActividad")]
-        public async Task<ActionResult> GetById(Int16 IdActividad)
+        public async Task<ActionResult> GetById(Int32 IdActividad)
         {
             try
             {
-                var response = _context.cat_Actividades.Where(x => x.IdActividad == IdActividad).ToList();
+                var response = _context.cat_actividades.Where(x => x.IdActividad == IdActividad).ToList();
 
                 return Ok(response);
             }
@@ -97,7 +97,7 @@ namespace WebApiActividadesApoyo.Controllers
         {
             if (item != null)
             {
-                _context.cat_Actividades.Add(item);
+                _context.cat_actividades.Add(item);
                 try
                 {
                     var response = _context.SaveChanges();
@@ -124,12 +124,12 @@ namespace WebApiActividadesApoyo.Controllers
         {
             if (item != null)
             {
-                _context.cat_Actividades.Add(item);
+                _context.cat_actividades.Add(item);
                 try
                 {
-                    var getMaxId = _context.cat_Actividades.Max(x => x.IdActividad);
+                    var getMaxId = _context.cat_actividades.Max(x => x.IdActividad);
 
-                    item.IdActividad = (Int16)(getMaxId + 1);
+                    item.IdActividad = (Int32)(getMaxId + 1);
 
                     var response = _context.SaveChanges();
                     return Content("{ Se han creado: " + response + " Registro(s) exitosamente}", "application/json");
@@ -156,7 +156,7 @@ namespace WebApiActividadesApoyo.Controllers
         {
             if (item != null)
             {
-                _context.cat_Actividades.Update(item);
+                _context.cat_actividades.Update(item);
                 try
                 {
 
@@ -179,7 +179,7 @@ namespace WebApiActividadesApoyo.Controllers
         #region DELETE
         [HttpDelete("{IdActividad}")]
         [Route("deleteActividad")]
-        public async Task<ActionResult> DeleteAsync(Int16 IdActividad)
+        public async Task<ActionResult> DeleteAsync(Int32 IdActividad)
         {
             if (IdActividad != 0)
             {
@@ -187,7 +187,7 @@ namespace WebApiActividadesApoyo.Controllers
                 {
                     cat_actividades e = new cat_actividades();
                     e.IdActividad = IdActividad;
-                    _context.cat_Actividades.Remove(e);
+                    _context.cat_actividades.Remove(e);
                     _context.SaveChanges();
                     return Ok(true);
                 }
@@ -211,7 +211,7 @@ namespace WebApiActividadesApoyo.Controllers
         {
             try
             {
-                var response = _context.cat_Actividades.ToList();
+                var response = _context.cat_actividades.ToList();
                 CatActividades item = new CatActividades();
                 item.cat_Actividades = response;
                 return Ok(item);
@@ -224,14 +224,14 @@ namespace WebApiActividadesApoyo.Controllers
 
         [HttpGet("{IdActividad}")]
         [Route("GetByIdActividad")]
-        public async Task<ActionResult> GetByIdActividad(Int16 IdActividad)
+        public async Task<ActionResult> GetByIdActividad(Int32 IdActividad)
         {
 
             try
             {
                 
 
-                var response = _context.cat_Actividades.Where(
+                var response = _context.cat_actividades.Where(
                         data => data.IdActividad == IdActividad).ToList();
                 CatActividades temp = new CatActividades();
                 temp.cat_Actividades = response;
@@ -262,7 +262,7 @@ namespace WebApiActividadesApoyo.Controllers
                                 in (value.cat_Actividades))
                     {
                         //checa si existe algo en la base
-                        var FicResult = (from cat_actividades in _context.cat_Actividades
+                        var FicResult = (from cat_actividades in _context.cat_actividades
                                          where cat_actividades.IdActividad == item.IdActividad
                                          select new
                                          {
@@ -271,11 +271,11 @@ namespace WebApiActividadesApoyo.Controllers
 
                         if (FicResult)
                         {
-                            _context.cat_Actividades.Update(item);
+                            _context.cat_actividades.Update(item);
                         }
                         else
                         {
-                            _context.cat_Actividades.Add(item);
+                            _context.cat_actividades.Add(item);
                         }
                         _context.SaveChanges();
                     }

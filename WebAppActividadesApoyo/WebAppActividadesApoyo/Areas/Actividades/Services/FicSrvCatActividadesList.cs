@@ -17,11 +17,11 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Services
 
         public FicSrvCatActividadesList()
         {
-            FicCliente.BaseAddress = new Uri("https://localhost:44311/");
+            FicCliente.BaseAddress = new Uri("https://localhost:44340/");
             FicCliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }//CONSTRUCTOR
 
-        #region LISTA DE EDIFICIOS
+        #region LISTA DE ACTIVIDAD
         public async Task<List<cat_actividades>> FicGetListCatActividades()
         {
 
@@ -35,8 +35,8 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Services
         }
         #endregion
 
-        #region DETALLE EDIFICIO (GET BY ID)
-        public async Task<List<cat_actividades>> FicGetListCatActividadesId(Int16 IdActividad)
+        #region DETALLE ACTIVIDAD (GET BY ID)
+        public async Task<List<cat_actividades>> FicGetListCatActividadesId(Int32 IdActividad)
         {
             HttpResponseMessage FicResponse = await FicCliente.GetAsync("GetActividad?IdActividad=" + IdActividad);
             if (FicResponse.IsSuccessStatusCode)
@@ -48,11 +48,10 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Services
         }
         #endregion
 
-        #region CREAR NUEVO EDIFICIO
+        #region CREAR NUEVO ACTIVIDAD
         public async Task<bool> FicGetListCatActividadesNuevo(cat_actividades item)
         {
-            string url = "CreateActividades" +
-                "2";
+            string url = "CreateActividad2";
             HttpResponseMessage response = await FicCliente.PostAsync(
                 new Uri(string.Format(FicCliente.BaseAddress + url, string.Empty)),
                 new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json")
@@ -62,7 +61,7 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Services
         }
         #endregion
 
-        #region ACTUALIZAR EDIFICIO
+        #region ACTUALIZAR ACTIVIDAD
         public async Task<bool> FicGetListCatActividadesUpdate(cat_actividades item)
         {
             string url = "updateActividad";
@@ -78,8 +77,8 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Services
         }
         #endregion
 
-        #region ELIMINAR EDIFICIO
-        public async Task<bool> FicGetListCatActividadesDelete(Int16 IdActividad)
+        #region ELIMINAR Actividad
+        public async Task<bool> FicGetListCatActividadesDelete(Int32 IdActividad)
         {
             HttpResponseMessage FicResponse = await FicCliente.GetAsync("deleteActividad?IdActividad=" + IdActividad);
             if (FicResponse.IsSuccessStatusCode) { }

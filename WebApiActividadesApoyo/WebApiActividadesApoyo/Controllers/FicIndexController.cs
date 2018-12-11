@@ -8,7 +8,7 @@ namespace WebApiActividadesApoyo.Controllers
 {
     public class FicIndexController : Controller
     {
-        public IActionResult Index()
+        public IActionResult FicMetIndex()
         {
             return View();
         }

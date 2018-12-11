@@ -9,6 +9,7 @@ using WebAppActividadesApoyo.Areas.Actividades.Models;
 
 namespace WebAppActividadesApoyo.Areas.Actividades.Controllers
 {
+    [Area("Actividades")]
     public class CatActividadesController : Controller
     {
         #region LIST 
@@ -30,7 +31,7 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Controllers
         #endregion
 
         #region DETALLE
-        public IActionResult FicViCatActividadesDetail(Int16 IdActividad) //IActionResult es para llamar a la vista
+        public IActionResult FicViCatActividadesDetail(Int32 IdActividad) //IActionResult es para llamar a la vista
         {
             try
             {
@@ -48,7 +49,7 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Controllers
         #endregion
 
         #region ACTUALIZAR
-        public IActionResult FicViActividadesUpdate(Int16 IdActividad) //IActionResult es para llamar a la vista
+        public IActionResult FicViCatActividadesUpdate(Int32 IdActividad) //IActionResult es para llamar a la vista
         {
             try
             {
@@ -92,7 +93,9 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Controllers
             FicSrvCatActividadesList FicServicio = new FicSrvCatActividadesList();
 
             item.UsuarioReg = "Leo";
+            //item.UsuarioMod = "Leo";
             item.FechaReg = DateTime.Now;
+            //item.FechaUltMod = DateTime.Now;
 
             bool FicLista = await FicServicio.FicGetListCatActividadesNuevo(item);
 
@@ -102,7 +105,7 @@ namespace WebAppActividadesApoyo.Areas.Actividades.Controllers
         #endregion
 
         #region ELIMINAR
-        public async Task<IActionResult> FicDelete(Int16 IdActividad)
+        public async Task<IActionResult> FicDelete(Int32 IdActividad)
         {
             FicSrvCatActividadesList FicServicio = new FicSrvCatActividadesList();
 

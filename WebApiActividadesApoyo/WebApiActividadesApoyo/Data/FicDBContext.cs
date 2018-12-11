@@ -15,6 +15,6 @@ namespace WebApiActividadesApoyo.Data
         {
 
         }
-        public DbSet<cat_actividades> cat_Actividades { get; set; }
+        public DbSet<cat_actividades> cat_actividades { get; set; }
     }
 }

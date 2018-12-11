@@ -1,0 +1,50 @@
+﻿@model List<WebAppActividadesApoyo.Areas.Actividades.Models.cat_actividades>
+
+@{
+    ViewData["Title"] = "FicViCatActividadesDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FicViCatActividadesDetail</h2>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+        @foreach (var item in Model)
+        {
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Id</label>
+                <input type="text" class="form-control" id="ID" value="@item.IdActividad" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Descripcion</label>
+                <input type="text" class="form-control" id="Des" value="@item.DesActividad" disabled>
+            </div>
+                      <div class="form-group">
+                <label for="exampleInputEmail1">Fecha Registro</label>
+                <input type="text" class="form-control" id="fechar" value="@item.FechaReg" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Fecha UltMod</label>
+                <input type="text" class="form-control" id="fechaumod" value="@item.FechaUltMod" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Usuario Registro</label>
+                <input type="text" class="form-control" id="usuarior" value="@item.UsuarioReg" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Usuario mod</label>
+                <input type="text" class="form-control" id="usuariomod" value="@item.UsuarioMod" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Activo</label>
+                <input type="text" class="form-control" id="acti" value="@item.Activo" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Fecha Registro</label>
+                <input type="text" class="form-control" id="fechar" value="@item.Borrado" disabled>
+            </div>
+        }
+    </div>
+</div>

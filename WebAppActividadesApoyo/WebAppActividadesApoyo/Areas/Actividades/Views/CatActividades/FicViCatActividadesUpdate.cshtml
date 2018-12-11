@@ -1,0 +1,45 @@
+﻿@model List<WebAppActividadesApoyo.Areas.Actividades.Models.cat_actividades>
+
+@{
+    ViewData["Title"] = "FicViCatActividadesUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FicViCatActividadesUpdate</h2>
+
+<h4>cat_actividades</h4>
+<hr />
+<div class="panel-body">
+
+    @foreach (var item in Model)
+    {
+        <form action="FicUpdate" method="post">
+
+            <input type="text" class="form-control" style="display:none" id="id" name="IdActividad" value="@item.IdActividad">
+            <input type="text" class="form-control" style="display:none" id="umod" name="UsuarioMod" value="@item.UsuarioMod">
+            <input type="text" class="form-control" style="display:none" id="ureg" name="UsuarioReg" value="@item.UsuarioReg">
+            <input type="text" class="form-control" style="display:none" id="fmod" name="FechaUltMod" value="@item.FechaUltMod">
+            <input type="text" class="form-control" style="display:none" id="freg" name="FechaReg" value="@item.FechaReg">
+
+            <div class="form-group">
+
+                <label for="exampleInputEmail1">Descripcion Actiidad</label>
+                <input type="text" class="form-control" id="Des" name="DesActividad" value="@item.DesActividad">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Detalle</label>
+                <input type="text" class="form-control" id="ri" name="Detalle" value="@item.Detalle">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Activo</label>
+                <input type="text" class="form-control" id="acti" name="Activo" value="@item.Activo">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Borrado</label>
+                <input type="text" class="form-control" id="acti" name="Borrado" value="@item.Borrado">
+            </div>
+            <button class="btn btn-primary" type="submit">Aceptar</button>
+
+        </form>
+    }
+</div>

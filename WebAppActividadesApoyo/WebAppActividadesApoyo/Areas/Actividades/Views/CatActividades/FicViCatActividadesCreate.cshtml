@@ -1,0 +1,40 @@
+﻿@model List<WebAppActividadesApoyo.Areas.Actividades.Models.cat_actividades>
+
+@{
+    ViewData["Title"] = "FicViCatActividadesCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FicViCatActividadesCreate</h2>
+
+<h4>cat_actividades</h4>
+<hr />
+
+<div class="panel-body">
+
+    <form action="Create" method="post">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">DesActividad</label>
+            <input type="text" class="form-control" id="Des" name="DesActividad" />
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Detalle</label>
+            <input type="text" class="form-control" id="cla" name="Detalle" />
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Activo</label>
+            <input type="text" class="form-control" id="acti" name="Activo" />
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Borrado</label>
+            <input type="text" class="form-control" id="acti" name="Borrado" />
+        </div>
+        <button class="btn btn-primary" type="submit">Aceptar</button>
+
+    </form>
+
+</div>
